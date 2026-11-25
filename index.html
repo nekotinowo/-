@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEKO.BOT — Умный Telegram-ассистент для резюме и заказов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Декоративное фоновое свечение -->
+  <div class="bg-glow bg-glow-purple"></div>
+  <div class="bg-glow bg-glow-teal"></div>
+
+  <!-- 1. Шапка (Navbar) -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="logo">
+        <span class="logo-dot"></span>
+        NEKO<span class="gradient-text">.BOT</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#features">Возможности</a>
+        <a href="#demo">Демо</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-sm" data-open-modal="Старт">Запустить</button>
+        <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Первый экран (Hero) в 2 колонки -->
+    <section class="hero" id="demo">
+      <div class="container hero-grid">
+        <!-- Левая колонка -->
+        <div class="hero-content">
+          <div class="badge">
+            <span class="badge-pulse"></span>
+            Telegram API • AI Assistant v2.4
+          </div>
+          <h1>
+            Идеальное резюме и <span class="gradient-text">свежие заказы</span> прямо в Telegram
+          </h1>
+          <p class="hero-desc">
+            Автоматизируйте поиск проектов на фрилансе и собирайте стильные PDF-резюме под каждую вакансию за пару кликов без рутины.
+          </p>
+
+          <div class="hero-cta">
+            <button class="btn btn-primary" data-open-modal="Pro">Попробовать бесплатно</button>
+            <a href="#features" class="btn btn-glass">Как это работает</a>
+          </div>
+
+          <!-- 3 мини-карточки с цифрами -->
+          <div class="hero-stats">
+            <div class="stat-card glass-card">
+              <div class="stat-value mono">&lt; 2 сек</div>
+              <div class="stat-label">скорость ответа</div>
+            </div>
+            <div class="stat-card glass-card">
+              <div class="stat-value mono">PDF / JSON</div>
+              <div class="stat-label">формат выгрузки</div>
+            </div>
+            <div class="stat-card glass-card">
+              <div class="stat-value mono">24/7</div>
+              <div class="stat-label">мониторинг бирж</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: интерактивный макет смартфона -->
+        <div class="hero-phone-wrapper">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            
+            <!-- Шапка Telegram-чата -->
+            <div class="tg-header">
+              <div class="tg-avatar">NB</div>
+              <div class="tg-info">
+                <div class="tg-name">
+                  NEKO.BOT
+                  <span class="tg-verified" title="Подтверждённый бот">✓</span>
+                </div>
+                <div class="tg-status" id="botStatus">бот • в сети</div>
+              </div>
+            </div>
+
+            <!-- Окно сообщений -->
+            <div class="tg-messages" id="chatMessages">
+              <div class="msg msg-bot">
+                Привет! Я <strong>NEKO.BOT</strong> — твой карьерный и фриланс-ассистент. Выбери действие в меню ниже, чтобы протестировать мои функции 👇
+                <span class="msg-time">12:00</span>
+              </div>
+            </div>
+
+            <!-- Нижняя панель с 3 кликабельными кнопками -->
+            <div class="tg-controls">
+              <div class="tg-controls-label">Быстрые команды:</div>
+              <div class="tg-buttons">
+                <button type="button" class="tg-cmd-btn" data-action="resume">📄 Собрать PDF-резюме</button>
+                <button type="button" class="tg-cmd-btn" data-action="orders">🔥 Найти свежие заказы</button>
+                <button type="button" class="tg-cmd-btn" data-action="payment">💳 Проверить оплату</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Секция «Возможности» -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag mono">// FEATURES</span>
+          <h2>Всё для быстрого старта и <span class="gradient-text">роста дохода</span></h2>
+          <p>Продуманная архитектура бота избавляет от заполнения таблиц и бесконечного скролла бирж.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card glass-card">
+            <div class="feature-icon">🧭</div>
+            <h3>Пошаговые сценарии</h3>
+            <p>Умный диалоговый FSM-движок ведёт по анкете без сложных команд: достаточно отвечать на простые вопросы бота.</p>
+          </article>
+
+          <article class="feature-card glass-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Нейросеть по API</h3>
+            <p>Автоматически адаптирует описание вашего опыта под требования конкретной вакансии и пишет сопроводительные письма.</p>
+          </article>
+
+          <article class="feature-card glass-card">
+            <div class="feature-icon">📑</div>
+            <h3>Автосборка PDF</h3>
+            <p>Генерация аккуратного, типографически выверенного PDF-документа и структурированного JSON-профиля за 1.5 секунды.</p>
+          </article>
+
+          <article class="feature-card glass-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Подписки и оплата</h3>
+            <p>Встроенный биллинг прямо в Telegram: мгновенная активация тарифов, чеки и управление подпиской в один тап.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Секция «Тарифы» -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag mono">// PRICING</span>
+          <h2>Прозрачные <span class="gradient-text">тарифы</span></h2>
+          <p>Начните бесплатно и масштабируйтесь, когда потребуется больше откликов и генераций.</p>
+
+          <!-- Переключатель Месяц / Год (-25%) -->
+          <div class="billing-toggle">
+            <span class="billing-label active" id="labelMonth">Месяц</span>
+            <button type="button" class="toggle-switch" id="billingSwitch" aria-label="Переключить период оплаты" aria-pressed="false">
+              <span class="toggle-thumb"></span>
+            </button>
+            <span class="billing-label" id="labelYear">
+              Год <span class="discount-badge">-25%</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Тариф Старт -->
+          <div class="price-card glass-card">
+            <div class="price-header">
+              <h3>Старт</h3>
+              <p class="price-subtitle">Для знакомства с сервисом</p>
+            </div>
+            <div class="price-amount">
+              <span class="price-value mono" data-month="0" data-year="0">0</span>
+              <span class="price-currency">₽</span>
+              <span class="price-period">/ мес</span>
+            </div>
+            <ul class="price-features">
+              <li>✓ 3 генерации PDF-резюме в месяц</li>
+              <li>✓ Базовый шаблон оформления</li>
+              <li>✓ Дайджест заказов 1 раз в день</li>
+              <li class="muted">✕ AI-адаптация сопроводительных</li>
+            </ul>
+            <button class="btn btn-glass btn-full" data-open-modal="Старт">Начать бесплатно</button>
+          </div>
+
+          <!-- Тариф Pro -->
+          <div class="price-card glass-card popular">
+            <div class="popular-badge">Популярный</div>
+            <div class="price-header">
+              <h3>Pro</h3>
+              <p class="price-subtitle">Для активных фрилансеров и соискателей</p>
+            </div>
+            <div class="price-amount">
+              <span class="price-value mono" data-month="490" data-year="368">490</span>
+              <span class="price-currency">₽</span>
+              <span class="price-period">/ мес</span>
+            </div>
+            <ul class="price-features">
+              <li>✓ Безлимитная генерация PDF и JSON</li>
+              <li>✓ 5 премиальных дизайн-шаблонов</li>
+              <li>✓ Мгновенные алерты по заказам 24/7</li>
+              <li>✓ Генерация откликов через AI API</li>
+            </ul>
+            <button class="btn btn-primary btn-full" data-open-modal="Pro">Выбрать Pro</button>
+          </div>
+
+          <!-- Тариф Бизнес -->
+          <div class="price-card glass-card">
+            <div class="price-header">
+              <h3>Бизнес</h3>
+              <p class="price-subtitle">Для агентств, студий и HR-команд</p>
+            </div>
+            <div class="price-amount">
+              <span class="price-value mono" data-month="1490" data-year="1118">1490</span>
+              <span class="price-currency">₽</span>
+              <span class="price-period">/ мес</span>
+            </div>
+            <ul class="price-features">
+              <li>✓ До 10 профилей специалистов</li>
+              <li>✓ Кастомный брендинг PDF-документов</li>
+              <li>✓ Парсинг закрытых каналов и бирж</li>
+              <li>✓ Приоритетная поддержка и Webhook API</li>
+            </ul>
+            <button class="btn btn-glass btn-full" data-open-modal="Бизнес">Подключить Бизнес</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Секция «FAQ» -->
+    <section class="section" id="faq">
+      <div class="container container-sm">
+        <div class="section-header">
+          <span class="section-tag mono">// FAQ</span>
+          <h2>Частые вопросы</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item glass-card">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Нужно ли устанавливать сторонние приложения?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Нет, вся работа происходит внутри официального мессенджера Telegram. Готовые резюме приходят прямо в чат в виде PDF-файла, который можно сразу переслать заказчику или HR.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Откуда бот берёт свежие заказы?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>NEKO.BOT в реальном времени отслеживает открытые API фриланс-бирж, профильные Telegram-каналы с вакансиями и отфильтровывает дубликаты по вашим ключевым словам и бюджету.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Можно ли отредактировать PDF после генерации?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Да! Вы можете изменить любой блок (стек, опыт, контакты или стиль шаблона) в боте или выгрузить данные в формате JSON для переноса в другие системы.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Как отменить подписку или сменить тариф?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Управление подпиской доступно в меню бота по команде <code>/billing</code>. Отключить автопродление можно в любой момент в один клик без обращения в поддержку.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="#" class="logo">
+          <span class="logo-dot"></span>
+          NEKO<span class="gradient-text">.BOT</span>
+        </a>
+        <div class="copyright">© 2026 NEKO.BOT. Коммерческий концепт для портфолио.</div>
+      </div>
+      <div class="footer-links">
+        <span>Другой проект автора:</span>
+        <a class="portfolio-link" href="https://nekotinowo.github.io/neko-radio/" target="_blank" rel="noopener">🎧 NEKO.FM — Онлайн-радио ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 7. Модальное окно -->
+  <div class="modal-backdrop" id="orderModal" aria-hidden="true">
+    <div class="modal-window glass-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" id="closeModalBtn" aria-label="Закрыть">✕</button>
+
+      <div id="modalFormState">
+        <span class="section-tag mono">// TELEGRAM ACCESS</span>
+        <h3 id="modalTitle">Запуск NEKO.BOT</h3>
+        <p class="modal-desc">Выбранный тариф: <strong id="selectedPlanName">Pro</strong>. Оставьте ваш Telegram, чтобы получить ссылку на активацию демо-доступа.</p>
+
+        <form id="leadForm" novalidate>
+          <div class="form-group">
+            <label for="tgUsername">Ваш Telegram @username</label>
+            <input type="text" id="tgUsername" name="tgUsername" placeholder="@username" autocomplete="off">
+            <span class="form-error" id="formError" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Получить доступ в Telegram</button>
+        </form>
+      </div>
+
+      <div id="modalSuccessState" hidden>
+        <div class="modal-success">
+          <div class="success-icon">✓</div>
+          <h3>Демо-заявка принята!</h3>
+          <p>Мы подготовили персональную ссылку-приглашение для <strong id="submittedUser"></strong> по тарифу <strong id="submittedPlan"></strong>.</p>
+          <button type="button" class="btn btn-primary btn-full" id="doneModalBtn">Отлично, закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
